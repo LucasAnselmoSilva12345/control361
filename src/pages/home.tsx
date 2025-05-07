@@ -17,9 +17,18 @@ export function Home() {
             </h2>
             <VehicleSelector selectedType={type} onChange={setType} />
           </div>
-          <div>
-            <input type="text" />
-            <button type="submit">Nova</button>
+          <div className="flex items-center gap-4">
+            <input
+              type="text"
+              className="max-w-56 h-10 p-[10px] text-xs font-inter bg-transparent border rounded-lg border-brand-90 placeholder:text-xs placeholder:text-brand-90 transition-colors focus:outline-none focus:ring-2 focus:border-none focus:ring-brand-100 focus:ring-opacity-50"
+              placeholder="Buscar por placa ou frota"
+            />
+            <button
+              type="submit"
+              className="h-10 w-36 text-xs font-poppins font-semibold bg-brand-100 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-brand-90 focus:ring-opacity-50"
+            >
+              Nova
+            </button>
           </div>
         </section>
         <VehicleList type={type} />

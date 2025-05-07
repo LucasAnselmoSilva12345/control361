@@ -6,6 +6,7 @@ export default {
       colors: {
         brand: {
           50: '#C8C8C8', // cinza claro
+          90: '#8A939D',
           100: '#0095E4', // azul claro
           200: '#002D44', // azul escuro
           300: '#001E2E', // azul petróleo
