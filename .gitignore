@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+.env
+
+exemplo-de-retorno.json
+exemplo-de-retorno-tracked.json

@@ -1,3 +1,14 @@
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { VehicleList } from '../components/vehicle-list';
+
+const queryClient = new QueryClient();
+
 export function Home() {
-  return <h1 className="font-poppins font-semibold text-2xl">Hello World</h1>;
+  return (
+    <>
+      <QueryClientProvider client={queryClient}>
+        <VehicleList />
+      </QueryClientProvider>
+    </>
+  );
 }
