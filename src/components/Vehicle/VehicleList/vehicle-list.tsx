@@ -1,7 +1,9 @@
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { useEffect, useRef } from 'react';
-import { fetchVehicles } from '../api/vehicle';
-import { Vehicle } from '../types/vehicle';
+import { fetchVehicles } from '../../../api/vehicle';
+import { Vehicle } from '../../../types/vehicle';
+import { TableHeader } from './table-header';
+import { TableData } from './table-data';
 
 interface VehicleListProps {
   type: 'tracked' | 'others';
@@ -43,26 +45,26 @@ export function VehicleList({ type }: VehicleListProps) {
   if (status === 'error') return <p>Erro ao carregar veículos.</p>;
 
   return (
-    <>
-      <table className="table-auto">
+    <section>
+      <table className="min-w-full text-center">
         <thead>
-          <tr>
-            <th>Place</th>
-            <th>Frota</th>
-            <th>Tipo</th>
-            <th>Modelo</th>
-            <th>Status</th>
+          <tr className="h-14">
+            <TableHeader>Placa</TableHeader>
+            <TableHeader>Frota</TableHeader>
+            <TableHeader>Tipo</TableHeader>
+            <TableHeader>Modelo</TableHeader>
+            <TableHeader>Status</TableHeader>
           </tr>
         </thead>
         <tbody>
           {data?.pages.map((page) =>
             page.content.vehicles.map((vehicle: Vehicle) => (
               <tr key={vehicle.id}>
-                <td>{vehicle.plate}</td>
-                <td>{vehicle.fleet}</td>
-                <td>{vehicle.type}</td>
-                <td>{vehicle.model}</td>
-                <td>{vehicle.status}</td>
+                <TableData>{vehicle.plate}</TableData>
+                <TableData>{vehicle.fleet}</TableData>
+                <TableData>{vehicle.type}</TableData>
+                <TableData>{vehicle.model}</TableData>
+                <TableData>{vehicle.status}</TableData>
               </tr>
             ))
           )}
@@ -76,6 +78,6 @@ export function VehicleList({ type }: VehicleListProps) {
           ? 'Role para carregar mais'
           : 'Fim da lista.'}
       </div>
-    </>
+    </section>
   );
 }

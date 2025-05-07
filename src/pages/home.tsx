@@ -1,6 +1,6 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { VehicleList } from '../components/vehicle-list';
-import { VehicleSelector } from '../components/vehicle-selector';
+import { VehicleList } from '../components/Vehicle/VehicleList/vehicle-list';
+import { VehicleSelector } from '../components/Vehicle/vehicle-selector';
 import { useState } from 'react';
 
 const queryClient = new QueryClient();
