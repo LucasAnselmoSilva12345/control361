@@ -3,11 +3,15 @@ import { useEffect, useRef } from 'react';
 import { fetchVehicles } from '../api/vehicle';
 import { Vehicle } from '../types/vehicle';
 
-export function VehicleList() {
+interface VehicleListProps {
+  type: 'tracked' | 'others';
+}
+
+export function VehicleList({ type }: VehicleListProps) {
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage, status } =
     useInfiniteQuery({
-      queryKey: ['vehicles'],
-      queryFn: ({ pageParam = 1 }) => fetchVehicles(pageParam),
+      queryKey: ['vehicles', type],
+      queryFn: ({ pageParam = 1 }) => fetchVehicles(pageParam, type),
       initialPageParam: 1,
       getNextPageParam: (lastPage) => {
         const current = lastPage.content.page;
@@ -33,6 +37,8 @@ export function VehicleList() {
       if (currentLoader) observer.unobserve(currentLoader);
     };
   }, [hasNextPage, isFetchingNextPage, fetchNextPage]);
+
+  useEffect(() => {}, [type]);
 
   if (status === 'error') return <p>Erro ao carregar veículos.</p>;
 
