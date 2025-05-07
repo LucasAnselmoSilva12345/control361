@@ -48,7 +48,7 @@ export function VehicleList({ type }: VehicleListProps) {
     <section>
       <table className="min-w-full text-center">
         <thead>
-          <tr className="h-14">
+          <tr className="h-14 bg-brand-400">
             <TableHeader>Placa</TableHeader>
             <TableHeader>Frota</TableHeader>
             <TableHeader>Tipo</TableHeader>
@@ -59,7 +59,7 @@ export function VehicleList({ type }: VehicleListProps) {
         <tbody>
           {data?.pages.map((page) =>
             page.content.vehicles.map((vehicle: Vehicle) => (
-              <tr key={vehicle.id}>
+              <tr key={vehicle.id} className="bg-brand-400">
                 <TableData>{vehicle.plate}</TableData>
                 <TableData>{vehicle.fleet}</TableData>
                 <TableData>{vehicle.type}</TableData>

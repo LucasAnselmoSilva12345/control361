@@ -10,7 +10,7 @@ export function TableData({
   ...props
 }: TableDataProps) {
   const baseClasses =
-    'border border-brand-200 text-sm font-inter text-brand-50 capitalize h-11';
+    'px-2 lg:px-0 border border-brand-200 text-sm font-inter text-brand-50 capitalize h-11';
 
   return (
     <td {...props} className={`${baseClasses} ${className}`}>

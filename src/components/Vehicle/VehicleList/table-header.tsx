@@ -9,7 +9,7 @@ export function TableHeader({
   className = '',
   ...props
 }: TableHeaderProps) {
-  const baseClasses = 'border border-brand-200';
+  const baseClasses = 'border border-brand-200 px-2 lg:px-0';
 
   return (
     <th {...props} className={`${baseClasses} ${className}`}>
