@@ -23,6 +23,3 @@ dist-ssr
 *.sln
 *.sw?
 .env
-
-exemplo-de-retorno.json
-exemplo-de-retorno-tracked.json
