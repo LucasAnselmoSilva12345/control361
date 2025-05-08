@@ -6,7 +6,7 @@ export function RoutesApp() {
   return (
     <BrowserRouter>
       <Header />
-      <main className="px-11">
+      <main className="px-[26px] lg:px-11">
         <Routes>
           <Route path="/" element={<Home />} />
         </Routes>
